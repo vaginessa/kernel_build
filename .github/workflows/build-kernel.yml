@@ -9,7 +9,7 @@ jobs:
   build-kernel:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup environment
         run: |
           echo "ANYKERNEL_SOURCE=$(cat config.env | grep -w "ANYKERNEL_SOURCE" | head -n 1 | cut -d "=" -f 2)" >> $GITHUB_ENV
@@ -62,7 +62,7 @@ jobs:
           fi
 
       - name: Upload kernel to artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.KERNEL_VERSION }}_${{ env.KERNEL_TARGET }}
           path: AnyKernel3/*
